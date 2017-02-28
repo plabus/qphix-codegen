@@ -392,16 +392,16 @@ void generate_code(void)
 							InstVector l2prefs;
 							std::ostringstream filename;
 
-							std::string tmf_prefix  = twisted_mass ? "tmf_" : "";
+							std::string tm_prefix  = twisted_mass ? "tm_" : "";
 							std::string clov_prefix = clover ? "clov_"+CloverTypeName+"_" : "";
 							std::string plusminus   = isPlus ? "plus" : "minus";
 							int num_components = compress12 ? 12 : 18;
 							bool chi_prefetches = (kernel == "dslash_achimbdpsi") ? true : false;
 
-							filename << "./" << ARCH_NAME << "/" << tmf_prefix << clov_prefix << kernel << "_" << plusminus << "_"
+							filename << "./" << ARCH_NAME << "/" << tm_prefix << clov_prefix << kernel << "_" << plusminus << "_"
 								<< "body" << "_" << SpinorTypeName << "_" << GaugeTypeName << "_v" << VECLEN << "_s" << SOALEN << "_" << num_components;
 
-							cout << "GENERATING " << tmf_prefix << kernel << "_" << plusminus << "_" << "vec body" << endl;
+							cout << "GENERATING " << tm_prefix << kernel << "_" << plusminus << "_" << "vec body" << endl;
 
 							// Generate instructions
 							generateL2Prefetches(l2prefs, compress12, chi_prefetches, clover, twisted_mass);
@@ -432,12 +432,12 @@ void generate_code(void)
 								InstVector l2prefs;
 								std::ostringstream filename;
 
-								std::string tmf_prefix  = twisted_mass ? "tmf_" : "";
+								std::string tm_prefix  = twisted_mass ? "tm_" : "";
 								std::string clov_prefix = clover ? "clov_"+CloverTypeName+"_" : "";
 								std::string plusminus   = isPlus ? "plus" : "minus";
 								int num_components = compress12 ? 12 : 18;
 
-								filename << "./" << ARCH_NAME << "/" << tmf_prefix << clov_prefix << "dslash_face_unpack_from_"
+								filename << "./" << ARCH_NAME << "/" << tm_prefix << clov_prefix << "dslash_face_unpack_from_"
 									<< dirname[dir] << "_" << dimchar[dim] << "_" << plusminus << "_"
 									<< SpinorTypeName << "_" << GaugeTypeName << "_v" << VECLEN << "_s" << SOALEN << "_" << num_components;
 
